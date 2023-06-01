@@ -116,7 +116,7 @@ countries = st.sidebar.multiselect(
 linhas_selecionadas = df1['country_code'].isin(countries)
 df1 = df1.loc[linhas_selecionadas, :]
 
-@st.cache_data
+
 def convert_df(df1):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df1.to_csv().encode('utf-8')
