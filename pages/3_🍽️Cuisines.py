@@ -10,6 +10,64 @@ import inflection
 st.set_page_config( page_title='Cuisines', page_icon='📈', layout='wide' )
 
 # ==================================================== 
+# Funções
+# ==================================================== 
+
+def clean_code( df1 ):
+    title = lambda x: inflection.titleize(x)
+    snakecase = lambda x: inflection.underscore(x)
+    spaces = lambda x: x.replace(" ", "")
+    cols_old = list(df1.columns)
+    cols_old = list(map(title, cols_old))
+    cols_old = list(map(spaces, cols_old))
+    cols_new = list(map(snakecase, cols_old))
+    df1.columns = cols_new
+    
+    COLORS = {
+    "3F7E00": "darkgreen",
+    "5BA829": "green",
+    "9ACD32": "lightgreen",
+    "CDD614": "orange",
+    "FFBA00": "red",
+    "CBCBC8": "darkred",
+    "FF7800": "darkred",
+    }
+    
+    COUNTRIES = {
+    1: "India",
+    14: "Australia",
+    30: "Brazil",
+    37: "Canada",
+    94: "Indonesia",
+    148: "New Zeland",
+    162: "Philippines",
+    166: "Qatar",
+    184: "Singapure",
+    189: "South Africa",
+    191: "Sri Lanka",
+    208: "Turkey",
+    214: "United Arab Emirates",
+    215: "England",
+    216: "United States of America",
+    }
+    df1['country_code'] = df1['country_code'].replace(COUNTRIES)
+    
+    RANGE = {
+        1: "cheap",
+        2: "normal",
+        3: "expensive",
+        4: "gourmet"
+        }
+    df1['price_range'] = df1['price_range'].replace(RANGE)
+    
+    df1.drop_duplicates(inplace=True)
+    df1.dropna(subset=['cuisines'], inplace=True)
+    df1['cuisines'] = df1.loc[:, 'cuisines'].apply(lambda x: x.split(',')[0])
+    df1 = df1.reset_index()
+    return df1
+
+
+# ==================================================== 
 #                  import dataset
 # ==================================================== 
 df = pd.read_csv( 'dataset/zomato.csv' )
@@ -19,57 +77,7 @@ df1 = df.copy()
 #                  Limpando Dados                  
 # ==================================================== 
 
-title = lambda x: inflection.titleize(x)
-snakecase = lambda x: inflection.underscore(x)
-spaces = lambda x: x.replace(" ", "")
-cols_old = list(df1.columns)
-cols_old = list(map(title, cols_old))
-cols_old = list(map(spaces, cols_old))
-cols_new = list(map(snakecase, cols_old))
-df1.columns = cols_new
-
-COLORS = {
-"3F7E00": "darkgreen",
-"5BA829": "green",
-"9ACD32": "lightgreen",
-"CDD614": "orange",
-"FFBA00": "red",
-"CBCBC8": "darkred",
-"FF7800": "darkred",
-}
-
-COUNTRIES = {
-1: "India",
-14: "Australia",
-30: "Brazil",
-37: "Canada",
-94: "Indonesia",
-148: "New Zeland",
-162: "Philippines",
-166: "Qatar",
-184: "Singapure",
-189: "South Africa",
-191: "Sri Lanka",
-208: "Turkey",
-214: "United Arab Emirates",
-215: "England",
-216: "United States of America",
-}
-df1['country_code'] = df1['country_code'].replace(COUNTRIES)
-
-RANGE = {
-    1: "cheap",
-    2: "normal",
-    3: "expensive",
-    4: "gourmet"
-    }
-df1['price_range'] = df1['price_range'].replace(RANGE)
-
-df1.drop_duplicates(inplace=True)
-df1.dropna(subset=['cuisines'], inplace=True)
-df1['cuisines'] = df1.loc[:, 'cuisines'].apply(lambda x: x.split(',')[0])
-df1 = df1.reset_index()
-
+df1 = clean_code( df ) 
 
 # ==================================================== 
 #                  BARRA LATERAL                    
