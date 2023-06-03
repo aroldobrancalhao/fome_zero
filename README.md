@@ -103,14 +103,26 @@ Marketplace foi o modelo de negócio assumido.
 Os 3 principais visões do negócio foram: Visão Countries, Visão Cities e Visão Cuisines.
 
 # 3. Estratégia da solução
-      O painel estratégico foi desenvolvido utilizando as métricas que refletem as 3 principais visões do modelo de negócio da empresa:
-
-        Visão do crescimento da empresa
-      Visão do crescimento dos restaurantes
-      Visão do crescimento dos entregadores Cada visão é representada pelo seguinte conjunto de métricas.
-      Visão do crescimento da empresa a. Pedidos por dia b. Porcentagem de pedidos por condições de trânsito c. Quantidade de pedidos por tipo e por cidade. d. Pedidos por       semana e. Quantidade de pedidos por tipo de entrega f. Quantidade de pedidos por condições de trânsito e tipo de cidade
-        Visão do crescimento dos restaurantes a. Quantidade de pedidos únicos. b. Distância média percorrida. c. Tempo médio de entrega durante festival e dias normais. d.       Desvio padrão do tempo de entrega durante festivais e dias normais. e. Tempo de entrega médio por cidade. f. Distribuição do tempo médio de entrega por cidade. g.            Tempo médio de entrega por tipo de pedido.
-      Visão do crescimento dos entregadores a. Idade do entregador mais velho e do mais novo. b. Avaliação do melhor e do pior veículo. c. Avaliação média por entregador.          d. Avaliação média por condições de trânsito. e. Avaliação média por condições climáticas. f. Tempo médido do entregador mais rápido. g. Tempo médio do entregador          mais rápido por cidade.
+O painel estratégico foi desenvolvido utilizando as métricas que refletem as 3 principais visões do modelo de negócio da empresa:
+Visão do crescimento de países
+Visão do crescimento das cidades
+Visão do crescimento dos tipos culinarios
+Cada visão é representada pelo seguinte conjunto de métricas.
+## Visão do crescimento de países
+      a. Quantidade de Restaurantes Registrados por País.
+      b. Quantidade de Cidades Registrados por País.
+      c. Média de Avaliações feitas por País. 
+      d. Média de Preço de um prato para duas pessoas po País.
+## Visão do crescimento das cidades
+      a. Top 10 Cidades com mais Restaurantes na Base de Dados.
+      b. Top 7 Cidades com Restaurantes com média de avaliação acima de 4. 
+      c. Top 7 Cidades com Restaurantes com média de avaliação abaixo de 2.5. 
+      d. Top 10 Cidades mais Restaurantes com tipos culinários distintos. 
+## Visão do crescimento dos tipos culinarios
+      a. Melhores Restaurantes dos Principais tipos Culinários.
+      b. Top Restaurantes. 
+      c. Top Melhores Tipos de Culinárias.          
+      d. Top Piores Tipos de Culinárias. 
 # 4. Top 3 Insights de dados
 Após analisar os dados da empresa Fome Zero e responder às perguntas do CEO, foram obtidos os seguintes insights:
 A diversidade de tipos de culinária é um dos pontos fortes da empresa. Com um total de X tipos de culinária registrados, a Fome Zero pode atrair um público amplo e diversificado, atendendo às preferências culinárias dos clientes.
